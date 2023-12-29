@@ -1,0 +1,41 @@
+.add-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 50vw;
+
+  & button {
+    border: none;
+    width: 50%;
+    transition: background-color 250ms linear, color 250ms linear;
+
+    &:hover {
+      color: #fff;
+      background-color: #cd5c5c;
+    }
+    &:focus {
+      color: #fff;
+      background-color: #cd5c5c;
+    }
+  }
+}
+
+.form-input {
+  border: 2px solid #008080;
+  width: 100%;
+  transition: background-color 250ms linear;
+
+  &:hover {
+    background-color: #b0e0e6;
+  }
+  &:focus {
+    background-color: #b0e0e6;
+  }
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+}

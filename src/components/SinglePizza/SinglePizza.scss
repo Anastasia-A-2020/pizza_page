@@ -1,0 +1,27 @@
+.pizza {
+  position: relative;
+  border: 1px solid #48d1cc;
+  padding: 1rem;
+
+  & svg:hover {
+    fill: #cd5c5c;
+    cursor: pointer;
+  }
+
+  & svg:focus {
+    fill: #cd5c5c;
+    cursor: pointer;
+  }
+}
+
+.pizza-img {
+  max-width: 100%;
+}
+
+.pizza-controls {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  display: flex;
+  gap: 10px;
+}
