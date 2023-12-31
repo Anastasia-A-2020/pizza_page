@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://anastasia-a-2020.github.io/pizza_page/",
+  "homepage": "https://Anastasia-A-2020.github.io/pizza_page/",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
