@@ -1,6 +1,7 @@
 import { ChangeEvent, FC, FormEvent, useState } from "react";
 import "./AddPizzaForm.scss";
 import { Pizza } from "../../modals/Pizza";
+import { pizzasName } from "../../constants/constants";
 
 const initState = {
   title: "",
@@ -17,16 +18,6 @@ type initStateTypes = {
 interface AddPizzaFormProps {
   addPizza: (newPizza: Pizza) => void;
 }
-
-const pizzasName: string[] = [
-  "pizza-1",
-  "pizza-2",
-  "pizza-3",
-  "pizza-4",
-  "pizza-5",
-  "pizza-6",
-  "pizza-7",
-];
 
 export const AddPizzaForm: FC<AddPizzaFormProps> = ({ addPizza }) => {
   const [newPizza, setNewPizza] = useState<initStateTypes>(initState);

@@ -1,6 +1,7 @@
 import { ChangeEvent, FC, FormEvent, useState } from "react";
 import "./EditPizzaForm.scss";
 import { Pizza } from "../../modals/Pizza";
+import { pizzasName } from "../../constants/constants";
 
 interface EditPizzaFormProps {
   data: Pizza;
@@ -15,7 +16,9 @@ export const EditPizzaForm: FC<EditPizzaFormProps> = ({
 }) => {
   const [editPizza, setEditPizza] = useState<Pizza>(data);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setEditPizza({ ...editPizza, [name]: value });
   };
@@ -51,14 +54,18 @@ export const EditPizzaForm: FC<EditPizzaFormProps> = ({
         className="form-input"
       />
 
-      <input
+      <select
         name="img"
-        type="text"
-        placeholder="Image"
+        className="form-input"
         onChange={handleChange}
         value={editPizza.img}
-        className="form-input"
-      />
+      >
+        {pizzasName.map(name => (
+          <option value={name} key={name}>
+            {name}
+          </option>
+        ))}
+      </select>
       <button type="submit">Confirm</button>
     </form>
   );
