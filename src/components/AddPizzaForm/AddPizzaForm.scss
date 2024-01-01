@@ -6,6 +6,10 @@
   gap: 5px;
   width: 25vw;
 
+  @media screen and (max-width: 768px) {
+    width: 75vw;
+  }
+
   & button {
     border: none;
     width: 50%;
