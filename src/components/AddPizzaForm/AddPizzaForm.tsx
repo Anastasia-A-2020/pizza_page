@@ -18,20 +18,33 @@ interface AddPizzaFormProps {
   addPizza: (newPizza: Pizza) => void;
 }
 
+const pizzasName: string[] = [
+  "pizza-1",
+  "pizza-2",
+  "pizza-3",
+  "pizza-4",
+  "pizza-5",
+  "pizza-6",
+  "pizza-7",
+];
+
 export const AddPizzaForm: FC<AddPizzaFormProps> = ({ addPizza }) => {
   const [newPizza, setNewPizza] = useState<initStateTypes>(initState);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setNewPizza({ ...newPizza, [name]: value });
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log("newPizza", newPizza);
 
     const { title, price, img } = newPizza;
 
-    if (title && price && img) {
+    if (title && price) {
       addPizza({ title, price: Number(price), img, id: Date.now() });
       setNewPizza(initState);
     }
@@ -57,14 +70,18 @@ export const AddPizzaForm: FC<AddPizzaFormProps> = ({ addPizza }) => {
           className="form-input"
         />
       </div>
-      <input
+      <select
         name="img"
-        type="text"
-        placeholder="Image"
+        className="form-input"
         onChange={handleChange}
         value={newPizza.img}
-        className="form-input"
-      />
+      >
+        {pizzasName.map(name => (
+          <option value={name} key={name}>
+            {name}
+          </option>
+        ))}
+      </select>
       <button type="submit">+ Add to cart</button>
     </form>
   );
