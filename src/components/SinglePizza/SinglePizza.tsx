@@ -25,6 +25,10 @@ export const SinglePizza: FC<SinglePizzaProps> = ({
     deletePizza(pizza.id);
   };
 
+  console.log(
+    `./src/images/${pizza.img?.length !== 0 ? pizza.img : "pizza-1"}.jpg`
+  );
+
   return (
     <div className="pizza">
       <img
